@@ -12,7 +12,7 @@
 				"-I\"C:/SFML3/include\"",
 				"-DSFML_STATIC",
 				"-o",
-				"${fileDirname}\\${fileBasenameNoExtension}.exe",
+				"${workspaceFolder}\\exec\\${fileBasenameNoExtension}.exe",
 				"-L\"C:/SFML3/lib\"",
 				"-lsfml-graphics-s",
 				"-lsfml-window-s",
@@ -24,6 +24,7 @@
 				"-lwinmm",
 				"-lgdi32",
 				"-lws2_32"
+				// "-mwindows"
 			],
 			"options": {
 				"cwd": "${fileDirname}"

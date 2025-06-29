@@ -11,7 +11,7 @@
 				"${file}",
 				"-I/home/noorrandi/SFML3/include",
 				"-o",
-				"${fileDirname}/${fileBasenameNoExtension}.exe",
+				"${workspaceFolder}\\exec\\${fileBasenameNoExtension}.exe",
 				"-L/home/noorrandi/SFML3/lib",
 				"-lsfml-graphics",
 				"-lsfml-window",
