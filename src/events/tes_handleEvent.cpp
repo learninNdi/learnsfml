@@ -21,18 +21,22 @@ int main()
     // note: never use both setverticalsync and setframelimit at the same time!
     // they would badly mix and make things worse
 
-    // run the program as long as the window is open
+    // check all the window's events that were triggered since the last iteration of the loop
+    // / handle events
+    const auto onClose = [&window](const sf::Event::Closed &)
+    {
+        window.close();
+    };
+
+    const auto onKeyPressed = [&window](const sf::Event::KeyPressed &keyPressed)
+    {
+        if (keyPressed.scancode == sf::Keyboard::Scancode::Escape)
+            window.close();
+    };
+
     while (window.isOpen())
     {
-        // check all the window's events that were triggered since the last iteration of the loop
-        // / handle events
-        while (const std::optional event = window.pollEvent())
-        {
-            // when close button is clicked
-            // or when escape button is pressed
-            if (event->is<sf::Event::Closed>() || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape))
-                window.close();
-        }
+        window.handleEvents(onClose, onKeyPressed);
     }
 
     return 0;

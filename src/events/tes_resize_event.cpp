@@ -1,5 +1,7 @@
 #include <SFML/Graphics.hpp>
 
+#include <iostream>
+
 unsigned int SCR_WIDTH = 800;
 unsigned int SCR_HEIGHT = 600;
 
@@ -29,9 +31,19 @@ int main()
         while (const std::optional event = window.pollEvent())
         {
             // when close button is clicked
-            // or when escape button is pressed
-            if (event->is<sf::Event::Closed>() || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape))
+            if (event->is<sf::Event::Closed>())
                 window.close();
+            else if (const auto *keyPressed = event->getIf<sf::Event::KeyPressed>())
+            {
+                if (keyPressed->scancode == sf::Keyboard::Scancode::Escape)
+                    window.close();
+            }
+
+            if (const auto *resized = event->getIf<sf::Event::Resized>())
+            {
+                std::cout << "new width: " << resized->size.x << std::endl;
+                std::cout << "new height: " << resized->size.y << std::endl;
+            }
         }
     }
 

@@ -33,6 +33,15 @@ int main()
             if (event->is<sf::Event::Closed>() || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape))
                 window.close();
         }
+
+        // clear the window with black color
+        window.clear(sf::Color::Black);
+
+        // draw everything here
+        // window.draw()
+
+        // end the current frame
+        window.display();
     }
 
     return 0;
