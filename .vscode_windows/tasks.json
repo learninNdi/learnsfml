@@ -23,8 +23,12 @@
 				"-lfreetype",
 				"-lwinmm",
 				"-lgdi32",
-				"-lws2_32"
-				// "-mwindows"
+				"-lws2_32",
+				"-lflac",
+				"-lvorbisenc",
+				"-lvorbisfile",
+				"-lvorbis",
+				"-logg"
 			],
 			"options": {
 				"cwd": "${fileDirname}"
