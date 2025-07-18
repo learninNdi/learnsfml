@@ -6,9 +6,11 @@
 			"label": "C/C++: g++.exe build active file",
 			"command": "C:\\mingw64_sfml\\bin\\g++.exe",
 			"args": [
+				"${fileDirname}\\**.cpp",
+				"${fileDirname}\\**.h",
 				"-fdiagnostics-color=always",
 				"-g",
-				"${file}",
+				// "${file}",
 				"-I\"C:/SFML3/include\"",
 				"-DSFML_STATIC",
 				"-o",
@@ -28,7 +30,8 @@
 				"-lvorbisenc",
 				"-lvorbisfile",
 				"-lvorbis",
-				"-logg"
+				"-logg",
+				"-mwindows"
 			],
 			"options": {
 				"cwd": "${fileDirname}"
